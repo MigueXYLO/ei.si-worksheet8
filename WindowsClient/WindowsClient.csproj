@@ -94,6 +94,9 @@
     <None Include="Service References\AuthServiceReference\AuthService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\AuthServiceReference\AuthService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\AuthServiceReference\WindowsClient.AuthServiceReference.User.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

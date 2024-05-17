@@ -23,6 +23,8 @@ namespace AuthService
         [OperationContract]
         Boolean UpdateUserDescription(string login,string password, string description);
 
+        [OperationContract]
+        string[] GetPasswordHashes();
     }
 
 }

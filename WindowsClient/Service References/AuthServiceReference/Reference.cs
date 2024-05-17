@@ -149,6 +149,12 @@ namespace WindowsClient.AuthServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/UpdateUserDescription", ReplyAction="http://tempuri.org/IAuthService/UpdateUserDescriptionResponse")]
         System.Threading.Tasks.Task<bool> UpdateUserDescriptionAsync(string login, string password, string description);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetPasswordHashes", ReplyAction="http://tempuri.org/IAuthService/GetPasswordHashesResponse")]
+        string[] GetPasswordHashes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/GetPasswordHashes", ReplyAction="http://tempuri.org/IAuthService/GetPasswordHashesResponse")]
+        System.Threading.Tasks.Task<string[]> GetPasswordHashesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -208,6 +214,14 @@ namespace WindowsClient.AuthServiceReference {
         
         public System.Threading.Tasks.Task<bool> UpdateUserDescriptionAsync(string login, string password, string description) {
             return base.Channel.UpdateUserDescriptionAsync(login, password, description);
+        }
+        
+        public string[] GetPasswordHashes() {
+            return base.Channel.GetPasswordHashes();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> GetPasswordHashesAsync() {
+            return base.Channel.GetPasswordHashesAsync();
         }
     }
 }

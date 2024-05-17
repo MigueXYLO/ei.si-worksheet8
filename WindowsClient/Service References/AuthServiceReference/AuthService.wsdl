@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:1871/AuthService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:1871/AuthService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:1871/AuthService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AuthService" />
+      <xsd:import schemaLocation="http://localhost:1871/AuthService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IAuthService_VerifyAcessToBD_InputMessage">
@@ -31,6 +32,12 @@
   <wsdl:message name="IAuthService_UpdateUserDescription_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateUserDescriptionResponse" />
   </wsdl:message>
+  <wsdl:message name="IAuthService_GetPasswordHashes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPasswordHashes" />
+  </wsdl:message>
+  <wsdl:message name="IAuthService_GetPasswordHashes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPasswordHashesResponse" />
+  </wsdl:message>
   <wsdl:portType name="IAuthService">
     <wsdl:operation name="VerifyAcessToBD">
       <wsdl:input wsaw:Action="http://tempuri.org/IAuthService/VerifyAcessToBD" message="tns:IAuthService_VerifyAcessToBD_InputMessage" />
@@ -47,6 +54,10 @@
     <wsdl:operation name="UpdateUserDescription">
       <wsdl:input wsaw:Action="http://tempuri.org/IAuthService/UpdateUserDescription" message="tns:IAuthService_UpdateUserDescription_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAuthService/UpdateUserDescriptionResponse" message="tns:IAuthService_UpdateUserDescription_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPasswordHashes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthService/GetPasswordHashes" message="tns:IAuthService_GetPasswordHashes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthService/GetPasswordHashesResponse" message="tns:IAuthService_GetPasswordHashes_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAuthService" type="tns:IAuthService">
@@ -80,6 +91,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateUserDescription">
       <soap:operation soapAction="http://tempuri.org/IAuthService/UpdateUserDescription" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPasswordHashes">
+      <soap:operation soapAction="http://tempuri.org/IAuthService/GetPasswordHashes" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
